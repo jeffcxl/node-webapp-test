@@ -24,7 +24,11 @@ jobs:
       - name: Login to Amazon ECR
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
-  
+      - name: Test
+        id: test-image
+        run: |
+          docker build --no-cache --target test .
+
       - name: Build, tag, and push image to Amazon ECR
         id: push-image
         env:
@@ -33,6 +37,6 @@ jobs:
         run: |
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-          
+
       - name: Checkout repository
         uses: actions/checkout@v3
