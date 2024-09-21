@@ -8,7 +8,7 @@ on:
 
 env:            
   AWS_REGION: ap-southeast-1   
-  ECR_REPOSITORY: public.ecr.aws/sctp-sandbox/jeff/simple-node-app
+  ECR_REPOSITORY: jeff/simple-node-app
 
 jobs:
   build:
