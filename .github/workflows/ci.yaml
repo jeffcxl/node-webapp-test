@@ -8,7 +8,7 @@ on:
 
 env:            
   AWS_REGION: ap-southeast-1   
-  ECR_REPOSITORY: jeff-node-webapp-test
+  ECR_REPOSITORY: public.ecr.aws/sctp-sandbox/jeff-node-webapp-test
 
 jobs:
   build:
@@ -16,7 +16,7 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-        
+
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
